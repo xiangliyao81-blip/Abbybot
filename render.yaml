@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: telegram-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 main:app
+    envVars:
+      - key: BOT_TOKEN
+        value: 8255581378:AAE8_9JzwrfStRNhMh5sBuCLB0S7_7i8Buc
+      - key: OPENAI_API_KEY
+        value: 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
+      - key: SERPAPI_KEY
+        value: 9dd0c920672f80fa6d57ad3b338fe53abc51ea32b6a6f291a6452021cd52be95
+      - key: PORT
+        value: 10000
